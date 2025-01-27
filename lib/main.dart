@@ -1,22 +1,33 @@
-  import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:task_management/view/home_screen.dart';
-// import 'package:todoapp/view/home_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:task_management/controller/task_controller.dart';
+import 'package:task_management/controller/theme_controller.dart';
+import 'package:task_management/screen/home_screen.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(ProviderScope(child: MyApp()));
+  Get.put(TaskController());
+  Get.put(ThemeController());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  final TaskController taskController = Get.put(TaskController());
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Task Manager',
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-      themeMode: ThemeMode.system,
-      home: HomeScreen(),
+    return GetBuilder<ThemeController>(
+      assignId: true,
+      builder: (controller) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'ToDo App',
+          theme: controller.isDarkTheme ? ThemeData.dark() : ThemeData.light(),
+
+
+          // theme: controller.isDarkTheme ? ThemeData.dark() : ThemeData.light(),
+          home: HomePage(),
+        );
+      },
     );
   }
 }

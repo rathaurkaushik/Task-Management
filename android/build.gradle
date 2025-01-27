@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.1' // ✅ updated version
+    }
+}
+
 allprojects {
     repositories {
         google()
@@ -7,13 +17,8 @@ allprojects {
 
 rootProject.buildDir = "../build"
 
-dependencies {
-    implementation 'com.android.support:support-annotations:28.0.0'
-}
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
     project.evaluationDependsOn(":app")
 }
 

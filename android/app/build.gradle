@@ -1,38 +1,31 @@
 plugins {
     id "com.android.application"
     id "kotlin-android"
-
-    id "dev.flutter.flutter-gradle-plugin" // The Flutter Gradle Plugin
+    id "dev.flutter.flutter-gradle-plugin" // Flutter Gradle Plugin
 }
 
 android {
     namespace = "com.example.task_management"
-//    compileSdk = flutter.compileSdkVersion
-    compileSdkVersion 33
-    ndkVersion = flutter.ndkVersion
 
-//    compileOptions {
-//        sourceCompatibility = JavaVersion.VERSION_1_8
-//        targetCompatibility = JavaVersion.VERSION_1_8
-////        coreLibraryDesugaringEnabled true // ✅ Enable desugaring
-//    }
+    compileSdk = 35
+    ndkVersion = "29.0.13113456"
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-        coreLibraryDesugaringEnabled true  // Enable desugaring
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled true // ✅ required for modern java APIs
     }
+
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = "17" // ✅ match Java version
     }
 
     defaultConfig {
         applicationId = "com.example.task_management"
-//        minSdk = flutter.minSdkVersion
-//        targetSdk = flutter.
-        minSdkVersion 21  // Ensure it's at least 21
-        targetSdkVersion 33
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+        minSdk = 21
+        targetSdk = 34
+        versionCode 1
+        versionName "1.0.0"
     }
 
     buildTypes {
@@ -46,10 +39,10 @@ flutter {
     source = "../.."
 }
 
-// ✅ ADD THIS CONFIGURATION BLOCK
 dependencies {
-//    implementation 'com.android.tools:desugar_jdk_libs:2.0.3' // ✅ Required for Java 8 features
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3' // ✅ Add this for desugaring
-    implementation 'androidx.annotation:annotation:1.2.0'
+    // ✅ Required for Java 8+ APIs with older Android versions
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 
+    // ✅ AndroidX annotations
+    implementation 'androidx.annotation:annotation:1.6.0'
 }

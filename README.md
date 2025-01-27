@@ -1,16 +1,32 @@
-# task_management
 
-A new Flutter project.
+// pubspec.yaml (dependencies)
+// dependencies:
+// flutter:
+//   sdk: flutter
+// get:
+// intl:
+
+// README.md
+/*
+# Task Manager (Mobile Only)
+
+A simple mobile task management app built with Flutter and GetX.
+
+## Features
+- Add tasks with optional description and due date
+- Light/Dark mode switch
+- Mark tasks as completed using switch toggle
+- Filter tasks by status (All, Pending, Completed)
+- Local notifications and reminders (mobile only - to be integrated)
 
 ## Getting Started
+Run this app on mobile:
+```
+flutter run
+```
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## TODOs
+- Add SQLite local persistence
+- Add notification using flutter_local_notifications
+- Add Firebase sync (optional)
+  */
