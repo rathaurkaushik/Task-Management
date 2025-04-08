@@ -130,30 +130,53 @@ class _AddTaskPageState extends State<AddTaskPage> {
             SizedBox(height: 6),
             Row(
               children: [
+                // Date & Time Display
                 Expanded(
-                  child: Text(
-                    getFormattedDateTime(),
-                    style: TextStyle(fontSize: 16),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.grey[800]
+                          : Colors.grey[200],
+                    ),
+                    child: Text(
+                      getFormattedDateTime(),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ),
-                TextButton(
+                SizedBox(width: 10),
+
+                // Pick Button with Icon
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                    backgroundColor: Theme.of(context).primaryColor,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  ),
                   onPressed: () => _selectDateTime(context),
-                  child: Text('Pick Date & Time'),
-                )
+                  icon: Icon(Icons.calendar_today, size: 18),
+                  label: Text('Pick', style: TextStyle(fontWeight: FontWeight.w500)),
+                ),
               ],
             ),
 
+
             Spacer(),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton.icon(
-                icon: Icon(Icons.check),
-                label: Text("Save Task"),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 14),
-                  textStyle: TextStyle(fontSize: 16),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  icon: Icon(Icons.check),
+                  label: Text("Save Task"),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 14),
+                    textStyle: TextStyle(fontSize: 16),
+                  ),
+                  onPressed: _saveTask,
                 ),
-                onPressed: _saveTask,
               ),
             )
           ],
