@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_management/controller/task_controller.dart';
 import 'package:task_management/controller/theme_controller.dart';
-import 'package:task_management/screen/home_screen.dart';
+import 'package:task_management/view/home_page.dart';
 
 void main() {
   Get.put(TaskController());

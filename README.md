@@ -8,6 +8,7 @@
 
 // README.md
 /*
+// if you are getting error so please update    ndkVersion = "29.0.13113456".
 # Task Manager (Mobile Only)
 
 A simple mobile task management app built with Flutter and GetX.

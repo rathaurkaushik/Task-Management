@@ -4,8 +4,9 @@ import 'package:intl/intl.dart';
 import 'package:task_management/controller/task_controller.dart';
 import 'package:task_management/controller/theme_controller.dart';
 import 'package:task_management/models/task_models.dart';
-import 'package:task_management/screen/add_task_page.dart';
-import 'package:task_management/screen/edit_task_page.dart';
+import 'package:task_management/view/add_task_page.dart';
+import 'package:task_management/view/edit_task_page.dart';
+
 
 
 class HomePage extends StatelessWidget {
